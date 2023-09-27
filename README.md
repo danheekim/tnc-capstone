@@ -1,1 +1,20 @@
-# tnc-capstone
+# AC297r: The Nature Conservancy Capstone Project
+
+## Project
+Biosecurity, also known as invasive species management, is a prominent challenge in safeguarding biodiversity, especially in island ecosystems. Compared to the mainland, islands have drastically higher rates of biodiversity and species extinction. Invasive species play a large role in these extinctions, thus our goal is to develop an early detection and alert system for invasive species introductions on islands. This will allow for swift action against invasive species populations before they have the chance to fully establish themselves in the island ecosystems. \
+Our proposed system plans to leverage data from real-time camera trapping technology coupled with automated machine learning methods. \
+\
+This project is a collaborative effort with [The Nature Conservancy](https://www.nature.org/en-us/) and students from Harvard's Applied Computation graduate program.
+
+## Intended Contribution
+Currently, there are no models that have been fine-tuned on high-elevation forest ecosystems that TNC can utilize. Thus, we plan on implementing species classification models for ecosystems of interests such as Maui and Kauai. Due to the nature of certain invasive species (e.g. rats, that are largely responsible for bird/reptile extinctions and that can reproduce quickly), we wish to implement a system that can provide automated alerts if a species of concern is detected allowing for prompt action. Therefore, we also plan on implementing models for invasive species classification using anomaly detection techniques and fine-tuning the MegaDetector model to specialize in rat detection. The end goal of our project is to provide models that can be integrated into the Animl platform allowing users to efficiently label their data and effectively leverage the established network of solar powered radio-connected camera traps that have been set up in hard-to-reach/challenging environments of interest. 
+
+## Broader Impact
+Developing machine learning models for invasive species detection via camera traps on islands holds significant promise for biodiversity conservation and biosecurity. It can lead to native species conservation, efficient resource allocation, early warning systems, and advances in scientific research. However, potential benefits must be balanced against ethical concerns, such as the risk of over-reliance on technology that could potentially lead to the neglect of traditional fieldwork, thereby putting native species at risk. Additionally, data bias and model transparency are critical considerations, as inaccurate results can lead to misinformed conservation strategies.Stakeholders include conservationists, researchers, government agencies, land managers, wildlife organizations, technology developers, regulatory bodies, and the general public. Each group stands to benefit from improved invasive species detection, but they also face corresponding risks if the technology fails or is exploited. The main risk is inaccurate data labeling leading to compromised ecosystem integrity (for example, false positives might result in unnecessary eradication efforts that harm non-target species, and false negatives might lead to uncontrolled population growth of invasive species). Other risks include misallocated economic and human resources, and privacy invasion in cases where camera traps are placed in areas frequented by humans. To mitigate these risks, it's crucial to implement preventive security measures and establish protocols for validating and cross-verifying the technology's results with a “human in the loop”, ensure transparency and accountability in data collection and analysis processes, as well as data anonymization if the database/models were to be made available to the public.
+
+
+## Group Members
+- Danhee Kim (sharonkim@g.harvard.edu)
+- Isha Vaish (ishavaish@g.harvard.edu)
+- Isidora Diaz (idiaz@g.harvard.edu)
+- Isabella Bossa (isabellabossa@g.harvard.edu)
