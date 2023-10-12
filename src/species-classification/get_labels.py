@@ -41,6 +41,6 @@ for filename in tqdm(file_to_id_dict.keys(), desc="Getting Labels", unit="image 
 # Upload full df to GCS
 df = pd.DataFrame(df, columns=['image_file', 'label'])
 csv_data = df.to_csv(index=False)
-path_name = 'lila_channel_islands_images_and_labels_temp.csv'
+path_name = 'lila_channel_islands_images_and_labels_all.csv'
 df_blob = client.bucket(bucket_name).blob(path_name)
 df_blob.upload_from_string(csv_data, content_type='text/csv')
