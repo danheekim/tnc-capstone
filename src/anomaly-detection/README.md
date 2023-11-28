@@ -1,11 +1,11 @@
 # Anomaly Detection
-In this section we focus on exploring various anomaly detection methods on the Santa
+In this directory, we focus on exploring various anomaly detection methods on the Santa
 Cruz Islands (SCI) dataset in Animl. 
 
-## Directory structure
+## Directory Structure
 
 ## How to download the SCI dataset from Animl
-** YOU MUST HAVE AN ANIML ACCOUNT TO DO THE FOLLOWING **
+** NOTE: You must have an Animl account to do download the data! **
 
 First, make sure you are in the anomaly-detection directory. Then run the 
 following in your terminal:
@@ -14,48 +14,44 @@ following in your terminal:
 3. `aws configure --profile animl`  
   
 The third command above will prompt you for the following:
-* AWS_ACCESS_KEY_ID
-* AWS_SECRET_ACESS_KEY
-* DEFAULT_REGION_NAME
-* DEFAULT_OUTPUT_FORMAT
+* `AWS_ACCESS_KEY_ID`
+* `AWS_SECRET_ACESS_KEY`
+* `DEFAULT_REGION_NAME` = `us-west-2`
+* `DEFAULT_OUTPUT_FORMAT` = `text`
   
-The AWS_ACESS_KEY_ID and AWS_SECRET_ACCESS_KEY were provided to us by Nathaniel
-Rindlaub (nathaniel.rindlaub@tnc.org) - contact him for details. 
-DEFAULT_REGION_NAME is `us-west-2` and DEFAULT_OUTPUT_FORMAT is `text`.
+The `AWS_ACESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` were provided to us by Nathaniel
+Rindlaub (nathaniel.rindlaub@tnc.org) - contact him for details.
 
-Once the above steps are completed, follow the instructions here: 
-https://github.com/tnc-ca-geo/animl-analytics
+Once you have configured the AWS environment by following the steps above, follow
+the instructions here: https://github.com/tnc-ca-geo/animl-analytics. This will
+clone the `animl-analytics` directory into your `anomaly-detection` directory.
+Note, we did not push `animl-analytics` to our repository as it was unneccessary
+(we kept a local version). 
 
-This will create an `animl-analytics` directory in `anomaly-detection`. 
+To download the SCI biodiversity dataset images run the following:
+1. `cd animl-analytics`
+2. `python utils/download_images.py --coco-file ../SCI_coco.json --output-dir ../images`  
   
-Here is the command we used to download the images (after following the 
-instructions given in the above link and being in the `animl-analytics` 
-directory):  
-`python utils/download_images.py 
---coco-file ../SCI_coco.json 
---output-dir ../images`
-
+Here, `../SCI_coco.json` is the path to our COCO json file for the SCI dataset, 
+downloaded from Animl and `../images` is the path to the directory we would like
+to store the images in. You can replace these with your own values. Note, the
+COCO json file is only for images that are human reviewed and aren't labeled `empty`, 
+`person`, `vehicle`,or `animal`. We did not upload the json file for privacy reasons.
+  
 If it takes too long to download the images/the session crashes in the middle, 
-you can run the following:  
-`python utils/download_images_mod.py 
---coco-file ../SCI_coco.json 
---output-dir ../images`
+you can run the following script instead :  
   
-Where `download_images_mod.py` is a modified version of `download_images.py` that
+`python utils/download_images_mod.py --coco-file ../SCI_coco.json --output-dir ../images`
+  
+The script `download_images_mod.py` is a modified version of `download_images.py` that
 we created to download multiple images in parallel and skip already downloaded
 images - this is faster than the original script. We have provided the 
-`download_images_mod.py` file make sure you move it into the 
+`download_images_mod.py` file for your use. Make sure you move it into the 
 `animl-analytics\utils` directory before running the above command.
   
-This creates an `images` directory in the `anomaly-detection` folder which
-contains the data.
-
-Note, the `coco-file` specified above is our custom coco file for the SCI dataset
-that filters out `empty`, `person`, `vehicle`, `animal` labeled images and only
-contains human reviewed images. This means our dataset has a total of 110,320
-images. Moreover, the `animl-analytics` and `images` directory are NOT pushed
-to this GitHub; they exist locally. The `coco-file` is provided for 
-reproducibility.  
+After following the above steps, you should have a local folder containing the SCI
+camera trap images. Note, this folder should not be pushed to the repository and
+should persist locally. 
 
 ## How to create the Images-Labels dataset
 The COCO json file for the SCI data contains three fields:
