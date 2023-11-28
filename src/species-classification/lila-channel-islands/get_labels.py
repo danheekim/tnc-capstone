@@ -6,16 +6,15 @@ import io
 import json
 from tqdm import tqdm
 
-### RUN THIS SCRIPT AGAIN TO GET LABELS FOR FULL DATASET #######################
 
 # Initialize Google Cloud Storage client
 client = storage.Client()
 
 # Define bucket name and paths
-bucket_name = 'lila_channel_islands_data'
-labels_csv_path = 'lila_channel_islands_true_labels.csv'
-image_ids_json_path = 'channel_islands_camera_traps.json'
-images_folder = 'cropped_images/'
+bucket_name = 'lila_channel_islands_data' # CHANGE THIS: your bucket name where the original LILA images are stored
+labels_csv_path = 'lila_channel_islands_true_labels.csv' # CHANGE THIS: path in bucket to LILA Channel Islands true labels csv 
+image_ids_json_path = 'channel_islands_camera_traps.json' # CHANGE THIS: path in bucket to LILA Channel Islands COCO json 
+images_folder = 'cropped_images/' # CHANGE THIS: folder in your bucket you want to store the cropped images
 
 # Download labels CSV from GCP bucket
 labels_blob = client.bucket(bucket_name).blob(labels_csv_path)
@@ -41,6 +40,6 @@ for filename in tqdm(file_to_id_dict.keys(), desc="Getting Labels", unit="image 
 # Upload full df to GCS
 df = pd.DataFrame(df, columns=['image_file', 'label'])
 csv_data = df.to_csv(index=False)
-path_name = 'lila_channel_islands_images_and_labels_all.csv'
+path_name = 'lila_channel_islands_images_and_labels_all.csv' # CHANGE THIS: desired output csv name
 df_blob = client.bucket(bucket_name).blob(path_name)
 df_blob.upload_from_string(csv_data, content_type='text/csv')
