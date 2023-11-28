@@ -65,9 +65,17 @@ the image's label, and `bbox` detailing the megadetector bounding box coordinate
 Thus using the COCO json, we can create a dataset that contains filenames of the
 cropped images (according to `bbox`) and the corresponding species labels. This
 intermediary file will make it easier for us to pull in images from a local folder
-into Google Colab (where we will be doing our exploration).   
+(containing the cropped images) into Google Colab (where we will be doing our 
+exploration).   
 
-The script for creating the dataset above is called `create_labels_df.py` and
+The script for creating the dataset above is called `crop_images.py` and
 can be run using the following command:    
-`python create_labels_df.py`
+  
+`python crop_images.py`    
+  
+Running the above script should create a new directory for the cropped images
+where the file name corresponds to the `file_name` attribute of the image. You
+should also see a csv containing the image file names and the species labels in 
+the `anomaly-detection` directory. 
+
 
