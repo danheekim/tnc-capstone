@@ -3,11 +3,21 @@ In this directory, we focus on exploring various anomaly detection methods on th
 Cruz Islands (SCI) dataset in Animl. 
 
 ## Directory Structure
+------------
+      └── anomaly-detection
+            ├── README.md
+            ├── crop_images.py
+            ├── download_images_mod.py
+            └── anomaly_detection.ipynb    
+            
+--------
+The `anomaly_detection.ipynb` contains our work for anomaly detection (Google
+Colab notebook).
 
 ## How to download the SCI dataset from Animl
 ** NOTE: You must have an Animl account to do download the data! **
 
-First, make sure you are in the anomaly-detection directory. Then run the 
+First, make sure you are in the `anomaly-detection` directory. Then run the 
 following in your terminal:
 1. `pip install aws configure`
 2. `pip install awscli`
