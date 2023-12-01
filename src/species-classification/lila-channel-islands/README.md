@@ -5,19 +5,22 @@ camera trap images, as well as evaluating the model's classification results
 using GRAD-CAM. 
 
 ## Directory Structure
-------------
-      └── lila-channel-islands/
-            ├── README.md
-            ├── docker-shell.sh
-            ├── Dockerfile
-            ├── requirements.txt
-            ├── preprocess.py
-            ├── get_labels.py
-            ├── efficientNet.ipynb
-            ├── lila_channel_islands_efficientnet_v1.png
-            └── grad-cam.ipynb      
-            
---------
+```
+tnc-capstone/
+├── src/
+│   ├── species-classification/
+│   │   ├── JDLP/... 
+│   │   └── lila-channel-islands/
+│   │   │   ├── README.md
+│   │   │   ├── Dockerfile
+│   │   │   ├── docker-shell.sh
+│   │   │   ├── efficientNet.ipynb
+│   │   │   ├── get_labels.py
+│   │   │   ├── preprocess.py
+│   │   │   ├── requirements.txt
+│   │   │   ├── grad-cam.ipynb
+│   │   │   └── lila_channel_islands_efficientnet_v1.png
+```
 A brief description of the files is given below:
 * `docker-shell.sh`: create and run/activate the Docker container
 * `Dockerfile`: blueprint for the Docker container

@@ -3,27 +3,40 @@ In this directory, we focus on exploring various anomaly detection methods on th
 Cruz Islands (SCI) dataset in Animl. 
 
 ## Directory Structure
-------------
-      └── anomaly-detection/
-            ├── README.md
-            ├── crop_images.py
-            ├── download_images_mod.py
-            ├── anomaly_detection_basic.ipynb
-            ├── CAE_anomaly_detection.ipynb
-            ├── cae_for_visualization.ipynb
-            ├── cae_anomaly_detection_tsne_and_accuracies/...
-            ├── cae_for_visualization/...
-            ├── cae_reconstructions/...
-            ├── traditional_anomaly_detection_tsne_and_accuracies/...
-            ├── sci_eda/...
-            └── models/
-                ├── cae_for_visualization.h5
-                └──  cae_sci_native.h5  
-
-      
+```
+tnc-capstone/
+├── src/
+│   ├── anomaly-detection/
+│   │   ├── README.md
+│   │   ├── sci_eda/
+│   │   │   ├── sci_eda_after.png
+│   │   │   └── sci_eda_before.png
+│   │   ├── traditional_anomaly_detection_tsne_and_accuracies/
+│   │   │   ├── invasive_bat_acc.png
+│   │   │   ├── invasive_bat_tsne.png
+│   │   │   └── ...
+│   │   ├── cae_reconstructions/
+│   │   │   ├── bat_recon.png
+│   │   │   ├── fox_recon.png
+│   │   │   └── ...
+│   │   ├── cae_anomaly_detection_tsne_and_accuracies/
+│   │   │   ├── bat_acc_new.png
+│   │   │   ├── bat_tsne_new.png
+│   │   │   └── ...
+│   │   ├── cae_for_visualization/
+│   │   │   ├── recon_tsne_p5.png
+│   │   │   ├── recon_tsne_p10.png
+│   │   │   └── ...
+│   │   ├── models/
+│   │   │   ├── cae_for_visualization.h5
+│   │   │   └── cae_sci_native.h5
+│   │   ├── crop_images.py
+│   │   ├── download_images_mod.py
+│   │   ├── anomaly_detection_basic.ipynb
+│   │   ├── CAE_anomaly_detection.ipynb
+│   │   └── cae_for_visualizatoin.ipynb
           
-            
---------
+```
 Description of directory files is given below:
 1. `crop_images.py` : python script for cropping images to their COCO json bounding
 boxes and matching them to their labels
