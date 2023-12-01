@@ -14,6 +14,7 @@ using GRAD-CAM.
             ├── preprocess.py
             ├── get_labels.py
             ├── efficientNet.ipynb
+            ├── lila_channel_islands_efficientnet_v1.png
             └── grad-cam.ipynb      
             
 --------
@@ -26,6 +27,7 @@ A brief description of the files is given below:
 the corresponding species labels
 * `efficientNet.ipynb`: notebook that does some EDA, fine-tunes EfficientNet on 
 the Channel Islands images, and analyzes the model results
+* `lila_channel_islands_efficientnet_v1.png`: confusion matrix image for model from `efficientNet.ipynb`
 * `grad-cam.ipynb`: notebook for using GRAD-CAM to analyze/interpret the fine-tuned EfficientNet
 classification results
 
