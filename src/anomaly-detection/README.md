@@ -8,11 +8,50 @@ Cruz Islands (SCI) dataset in Animl.
             ├── README.md
             ├── crop_images.py
             ├── download_images_mod.py
-            └── anomaly_detection.ipynb    
+            ├── anomaly_detection_basic.ipynb
+            ├── CAE_anomaly_detection.ipynb
+            ├── cae_for_visualization.ipynb
+            ├── cae_anomaly_detection_tsne_and_accuracies
+                └── ...
+            ├── cae_for_visualization
+                └── ...
+            ├── cae_reconstructions
+                └── ...
+            ├── traditional_anomaly_detection_tsne_and_accuracies
+                └── ...
+            ├── sci_eda
+                └── ...
+            └── models
+                ├── cae_for_visualization.h5
+                └──  cae_sci_native.h5  
+
+      
+          
             
 --------
-The `anomaly_detection.ipynb` contains our work for anomaly detection (Google
-Colab notebook).
+Description of directory files is given below:
+1. `crop_images.py` : python script for cropping images to their COCO json bounding
+boxes and matching them to their labels
+2. `download_images_mod.py` : modified version of `download_images.py` from 
+`animl-analytics` repo that uses parallel processing for faster download
+3. `anomaly_detection_basic.ipynb` : notebook for running anomaly detection on the
+Santa Cruz Islands data with traditional autoencoder structure and no image feature extraction
+4. `CAE_anomaly_detection.ipynb` : notebook for running anomaly detection on the Santa
+Cruz Islands data with convolutional autoencoders (preferred)
+5. `CAE_for_visualization.ipynb`: notebook for training an convolutional autoencoder on high-level animal
+labels and using t-sne to visualize the reconstructions
+  
+Description of directory folders is given below:
+1. `cae_anomaly_detection_tsne_and_accuracies/`: contains images of invasive species t-sne
+reconstructions and prediction accuracies from `CAE_anomaly_detection.ipynb`
+2. `cae_for_visualization/`: contains images of t-sne reconstructions at different perplexities
+for all high level animal labels from `cae_for_visualization.ipynb`
+3. `cae_reconstructions/`: contains reconstruction images from the trained model in `CAE_anomaly_detection.ipynb`
+4. `traditional_anomaly_detection_tsne_and_accuracies/`: contains images of the invasive 
+species t-sne reconstructions and prediction accuracies from `anomaly_detection_basic.ipynb`
+5. `sci_eda/`: contains santa cruz island EDA plots from `CAE_anomaly_detection.ipynb`
+6. `models/`: contains `cae_sci_native.h5` which is the model from `CAE_anomaly_detection.ipynb`
+and `cae_for_visualization.h5` which is the model from `cae_for_visualizatoin.ipynb`
 
 ## How to download the SCI dataset from Animl
 ** NOTE: You must have an Animl account to do download the data! **
