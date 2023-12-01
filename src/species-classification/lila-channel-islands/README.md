@@ -6,7 +6,7 @@ using GRAD-CAM.
 
 ## Directory Structure
 ------------
-      └── lila-channel-islands
+      └── lila-channel-islands/
             ├── README.md
             ├── docker-shell.sh
             ├── Dockerfile
