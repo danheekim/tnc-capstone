@@ -47,6 +47,10 @@ tnc-capstone/
 │   │       └── lila_channel_islands_efficientnet_v1.png
 │   ├── anomaly-detection/
 │   │   ├── README.md
+│   │   ├── figures_for_readme/
+│   │   │   ├── traditional_autoencoder.png
+│   │   │   ├── convolutional_autoencoder.png
+│   │   │   └── ...
 │   │   ├── sci_eda/
 │   │   │   ├── sci_eda_after.png
 │   │   │   └── sci_eda_before.png
@@ -155,8 +159,8 @@ tnc-capstone/
 - Description: This module is currently under development and not yet fully implemented.
 
 #### Anomaly Detection
-- Description: This module is currently under development and not yet fully implemented.
-
+In this model we aim to explore anomaly detection techniques with auotencoders for invasive
+species prediction. For more details and documentations, please refer to the `anomaly-detection/README.md`.
 
 ## License
 This project is licensed under the MIT License - see the LICENSE file for details.
