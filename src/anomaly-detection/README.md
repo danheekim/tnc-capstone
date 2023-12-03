@@ -284,4 +284,21 @@ The CAE reconstruction from the butterfly seems to show better distinction (acco
 the traditional autoencoder. However, the distinction is still more clear for snake than for butterfly.
   
 Since the t-SNE plots seem to show some difference between the native vs invasive species reconstructions, 
-it is worth it to explore other thresholds for prediction. 
+it is worth it to explore other thresholds for prediction.   
+  
+The `cae_for_visualization/` folder contains the results of training a CAE on all species and
+using t-SNE to visualize the reconstructions. The code for this can be found in `cae_for_visualization.ipynb`.  This time, we decided to only train the autoencoder on the high-level species names (ex: rodent).
+The image distribution of the adjusted species labels are given below (here we collapsed the low-level names
+into their high level categories).
+  
+![sd](cae_for_visualization/cae_for_visualization_dataset_highlevel.png)
+  
+We tried different perplexities, but the results were not good for any of the values. An example for p = 10 is given below.  
+
+![p](cae_for_visualization/recon_tsne_p10.png)
+
+### Recommended future work
+1. Explore more complex architectures
+2. Try visualization by species (fit CAEs at the species level)
+3. Research and implement about different prediction thresholds
+
