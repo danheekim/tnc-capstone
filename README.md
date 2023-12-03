@@ -2,10 +2,11 @@
 
 
 ## Overview
-Biosecurity, also known as invasive species management, is a prominent challenge in safeguarding biodiversity, especially in island ecosystems. Compared to the mainland, islands have drastically higher rates of biodiversity and species extinction. Invasive species play a large role in these extinctions, thus our goal is to develop an early detection and alert system for invasive species introductions on islands. This will allow for swift action against invasive species populations before they have the chance to fully establish themselves in the island ecosystems. \
-Our proposed system plans to leverage data from real-time camera trapping technology coupled with automated machine learning methods. \
-\
-This project is a collaborative effort with [The Nature Conservancy](https://www.nature.org/en-us/) and students from Harvard's Applied Computation graduate program.
+Biosecurity, also known as invasive species management, is crucial for safeguarding native species and habitats especially in coastal ecosystems, which have higher rates of species extinction. Invasive species disrupt ecosystems and contribute to the decline of native species. Computer vision frameworks can be used to implement biosecurity measures with various applications such as species classification and invasive species detection.   
+
+In this project, we plan to explore methodologies related to species classification, model interpretability, rat detection, and anomaly detection using autoencoders for invasive species detection. Our proposed frameworks aim to leverage data from real-time camera trap images of coastal ecosystems along with automated machine learning methodologies.  
+
+This project is a collaborative effort with [The Nature Conservancy](https://www.nature.org/en-us/). The Nature Conservancy (TNC) is a globally influential environmental organization with roots dating back to its grassroots inception in the U.S. in 1951. Overall, they have more than a million members and a diverse team of over 400 scientists, TNC's conservation efforts span 79 countries and territories, directly impacting 37 of these regions and collaborating with partner organizations in 42 others. At its core, TNC is guided by a determined mission: to protect the lands and waters essential for all life. They envision a world where biodiversity flourishes, and where humanity embraces its responsibility as custodians, valuing nature for its intrinsic worth and its profound capacity to enrich our lives.
 
 ### Table of Contents
 - [AC297r: The Nature Conservancy Capstone Project](#ac297r-the-nature-conservancy-capstone-project)
@@ -27,22 +28,59 @@ This project is a collaborative effort with [The Nature Conservancy](https://www
 tnc-capstone/
 ├── src/
 │   ├── species-classification/
-│   │   ├── Dockerfile
-│   │   ├── docker-shell.sh
-│   │   ├── efficientNet.ipynb
-│   │   ├── get_labels.py
-│   │   ├── preprocess.py
-│   │   └── requirements.txt
+│   │   ├── JDLP/
+│   │   │   ├── README.md
+│   │   │   ├── get_bounding_boxes.ipynb
+│   │   │   ├── get_cropped_images_animl.ipynb
+│   │   │   ├── get_cropped_images.ipynb
+│   │   │   ├── merge_data.ipynb
+│   │   │   └── species_classification.ipynb   
+│   │   └── lila-channel-islands/
+│   │       ├── README.md
+│   │       ├── Dockerfile
+│   │       ├── docker-shell.sh
+│   │       ├── efficientNet.ipynb
+│   │       ├── get_labels.py
+│   │       ├── preprocess.py
+│   │       ├── requirements.txt
+│   │       ├── grad-cam.ipynb
+│   │       └── lila_channel_islands_efficientnet_v1.png
 │   ├── anomaly-detection/
+│   │   ├── README.md
+│   │   ├── figures_for_readme/
+│   │   │   ├── traditional_autoencoder.png
+│   │   │   ├── convolutional_autoencoder.png
+│   │   │   └── ...
+│   │   ├── sci_eda/
+│   │   │   ├── sci_eda_after.png
+│   │   │   └── sci_eda_before.png
+│   │   ├── traditional_anomaly_detection_tsne_and_accuracies/
+│   │   │   ├── invasive_bat_acc.png
+│   │   │   ├── invasive_bat_tsne.png
+│   │   │   └── ...
+│   │   ├── cae_reconstructions/
+│   │   │   ├── bat_recon.png
+│   │   │   ├── fox_recon.png
+│   │   │   └── ...
+│   │   ├── cae_anomaly_detection_tsne_and_accuracies/
+│   │   │   ├── bat_acc_new.png
+│   │   │   ├── bat_tsne_new.png
+│   │   │   └── ...
+│   │   ├── cae_for_visualization/
+│   │   │   ├── recon_tsne_p5.png
+│   │   │   ├── recon_tsne_p10.png
+│   │   │   └── ...
+│   │   ├── models/
+│   │   │   ├── cae_for_visualization.h5
+│   │   │   └── cae_sci_native.h5
+│   │   ├── crop_images.py
+│   │   ├── download_images_mod.py
+│   │   ├── anomaly_detection_basic.ipynb
+│   │   ├── CAE_anomaly_detection.ipynb
+│   │   └── cae_for_visualizatoin.ipynb
+│   ├── rat-detection/
 │   │   └── model.py
-│   ├── rad-detection/
-│   │   └── model.py
-│   ├── bboxes/
-│   │   ├── img-000-552.jpg
-│   │   ├── img-000-7553.jpg
-│   │   └── ...
-│   ├── secrets
-│   └── preprocess.py
+│   └── secrets/
 ├── LICENSE
 └── README.md
 ```
@@ -121,8 +159,8 @@ tnc-capstone/
 - Description: This module is currently under development and not yet fully implemented.
 
 #### Anomaly Detection
-- Description: This module is currently under development and not yet fully implemented.
-
+In this model we aim to explore anomaly detection techniques with auotencoders for invasive
+species prediction. For more details and documentations, please refer to the `anomaly-detection/README.md`.
 
 ## License
 This project is licensed under the MIT License - see the LICENSE file for details.

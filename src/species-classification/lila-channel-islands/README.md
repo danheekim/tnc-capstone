@@ -5,18 +5,22 @@ camera trap images, as well as evaluating the model's classification results
 using GRAD-CAM. 
 
 ## Directory Structure
-------------
-      └── lila-channel-islands
-            ├── README.md
-            ├── docker-shell.sh
-            ├── Dockerfile
-            ├── requirements.txt
-            ├── preprocess.py
-            ├── get_labels.py
-            ├── efficientNet.ipynb
-            └── grad-cam.ipynb      
-            
---------
+```
+tnc-capstone/
+├── src/
+│   ├── species-classification/
+│   │   ├── JDLP/... 
+│   │   └── lila-channel-islands/
+│   │   │   ├── README.md
+│   │   │   ├── Dockerfile
+│   │   │   ├── docker-shell.sh
+│   │   │   ├── efficientNet.ipynb
+│   │   │   ├── get_labels.py
+│   │   │   ├── preprocess.py
+│   │   │   ├── requirements.txt
+│   │   │   ├── grad-cam.ipynb
+│   │   │   └── lila_channel_islands_efficientnet_v1.png
+```
 A brief description of the files is given below:
 * `docker-shell.sh`: create and run/activate the Docker container
 * `Dockerfile`: blueprint for the Docker container
@@ -26,6 +30,7 @@ A brief description of the files is given below:
 the corresponding species labels
 * `efficientNet.ipynb`: notebook that does some EDA, fine-tunes EfficientNet on 
 the Channel Islands images, and analyzes the model results
+* `lila_channel_islands_efficientnet_v1.png`: confusion matrix image for model from `efficientNet.ipynb`
 * `grad-cam.ipynb`: notebook for using GRAD-CAM to analyze/interpret the fine-tuned EfficientNet
 classification results
 
