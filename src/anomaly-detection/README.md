@@ -182,7 +182,7 @@ image quality), train for longer with a larger batch size, and expierement with 
 
 ### Inference
 During the inference phase, for each invasive species image, we predict a reconstruction using the 
-trained autoencoder. If the correlation between the reconstruction and the truth is less than the theshold `t`, then the image is of an invasive species. Here, $t = c * val\_corr$ where `c` is a hyper-parameter tuned
+trained autoencoder. If the correlation between the reconstruction and the truth is less than the theshold `t`, then the image is of an invasive species. Here, `t = c * val_corr` where `c` is a hyper-parameter tuned
 constant between 0 and 1. 
   
 ### Results
@@ -260,7 +260,8 @@ We trained for 10 epochs, an MSE objective, and with an image size of (224, 224)
 on the native images. The average MSE between the reconstructions and true images of the validation set (`mean_val_mse`) was calculated as well as the standard deviation (`sd_val_mse`) and used during inference.
 
 The model did well in reconstructing the native and invasive species images. All reconstructions
-can be found in `cae_reconstructions\`.  An example is shown below.
+can be found in `cae_reconstructions\`.  An example is shown below.  
+   
 ![native cae recon](cae_reconstructions/fox_recon.png)
 ![invasive cae recon](cae_reconstructions/squirrel_recon.png)  
 
@@ -268,7 +269,7 @@ can be found in `cae_reconstructions\`.  An example is shown below.
 We used the trained CAE to get reconstructions for the inasive species images. 
 Then for each image, if the MSE between the reconstruction and truth was less than
 the threshold `t`, the image was of an invasive species. Here the threshold is 
-$t = mean\_val\_mse + k * std\_val\_mse$. Here, k is hyper-parameter tuned and takes
+`t = mean_val_mse + k * std_val_mse`. Here, k is hyper-parameter tuned and takes
 3 values: [1, 2, 3]. In statistics, an observation more than 3 standard deviations away
 from the mean is considered an outlier. 
 
