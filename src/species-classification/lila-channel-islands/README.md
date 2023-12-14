@@ -70,3 +70,61 @@ dataframe and to save it as a csv in your bucket run the following command:
 
 `python get_labels.py`  
 
+The `efficientNet.ipynb` notebook initializes and configures the model architecture, making it ready for training.
+
+- Dataset: [Channel Islands Camera Traps](https://lila.science/datasets/channel-islands-camera-traps/). This data set contains 246,529 camera trap images from 73 camera locations in the Channel Islands, California. All animals are annotated with bounding boxes. Animals are classified as rodent (82,914), fox (48,150), bird (11,099), skunk (1,071), or other (159). 114,949 images (47%) are empty.
+
+  - Fine-tuning subset splits:
+    <center>
+
+      |      | Train | Val  | Test  |
+      | ---- | ----- | ---- | ----- |
+      | Size | 58,793 | 8,400 | 16,799 |
+      | Proportion | 0.67 | 0.13 | 0.20 |
+
+    </center>
+  - Class distributions:  
+
+    <center>
+
+    | Class  | Proportion in Split |
+    | ------ | ------------------- |
+    | fox    | 0.495               |
+    | rodent | 0.430               |
+    | bird   | 0.062               |
+    | skunk  | 0.009               |
+    | empty  | 0.003               |
+    | other  | 0.001               |
+
+    </center>
+  
+- Model Architecture
+
+    The model architecture consists of the following components:
+
+    1. Base Model: A pre-trained EfficientNetB0 model is loaded without its top classification layers. This serves as the backbone of the classification model. The input shape is set to (224, 224, 3) to match the expected input size for the EfficientNetB0.
+
+    2. Fine-tuning Layers: Global average pooling is applied to the output of the base model to reduce the spatial dimensions. A dense layer with a softmax activation function is added to perform the final classification. This predicts the probabilities of each class.
+
+    3. Unfreezing Layers: The last 20 layers (excluding batch normalization layers) of the model are unfrozen for training. This allows the model to fine-tune its parameters on the specific dataset.
+
+- Model training:
+    The model was trained for 5 epochs, on a subset of the data, and the training and test sets were split 80/20. The model was evaluated on the test set, which was not used during training. The confusion matrix below shows the model's performance on the test set.
+
+- Results: 
+    The fine-tuning of the EfficientNet model yielded overall high accuracy results across various classes. Notably, the Fox class achieved an outstanding average test accuracy of 99.3%, followed closely by the Rodent class with an accuracy of 99.6%. The Skunk and Bird classes also demonstrated strong performance, achieving accuracies of 95.3% and 96.9% respectively. However, the model faced challenges distinguishing between the 'Other' category, achieving an accuracy of 57.1%, and the 'Empty' category, where it achieved the lowest accuracy of 11.1%. This is likely due to the fact that the 'Other' category is comprised of a wide variety of species, and the 'Empty' category is comprised of images that do not contain any animals.  
+    
+    <center>
+    
+    ![alt text](img/results/efficientNet.png "EfficientNetB0 Results")
+
+    | Class  | Average test accuracy |
+    | ------ | --------------------- |
+    | Fox    | 99.3%                 |
+    | Skunk  | 95.3%                 |
+    | Rodent | 99.6%                 |
+    | Bird   | 96.9%                 |
+    | Other  | 57.1%                 |
+    | Empty  | 11.1%                 |
+
+    </center>
