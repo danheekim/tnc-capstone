@@ -70,6 +70,14 @@ dataframe and to save it as a csv in your bucket run the following command:
 
 `python get_labels.py`  
 
+#### Preprocessing
+The `preprocess.py` script is designed to automate the cropping of images in a dataset based on the bounding boxes predicted by the MegaDetector v5b model. It is intended to be used a single time to preprocess the dataset before training the species classification models. It utilizes the Google Cloud Storage client to read and write data from Google Cloud Storage buckets. The script is multi-threaded to improve processing efficiency.
+
+    The script reads the JSON data from Google Cloud Storage. This JSON file contains information about the images and the bounding boxes detected by MegaDetector v5b.
+
+    For each image in the dataset, the script checks if it has already been cropped. If not, it proceeds to crop the image based on the bounding boxes with a confidence level greater than 0.90. It then uploads the cropped image to the specified output folder in Google Cloud Storage.
+
+### EfficientNetB0
 The `efficientNet.ipynb` notebook initializes and configures the model architecture, making it ready for training.
 
 - Dataset: [Channel Islands Camera Traps](https://lila.science/datasets/channel-islands-camera-traps/). This data set contains 246,529 camera trap images from 73 camera locations in the Channel Islands, California. All animals are annotated with bounding boxes. Animals are classified as rodent (82,914), fox (48,150), bird (11,099), skunk (1,071), or other (159). 114,949 images (47%) are empty.
@@ -83,8 +91,8 @@ The `efficientNet.ipynb` notebook initializes and configures the model architect
       | Proportion | 0.67 | 0.13 | 0.20 |
 
     </center>
-  - Class distributions:  
 
+  - Class distributions:
     <center>
 
     | Class  | Proportion in Split |
@@ -98,6 +106,7 @@ The `efficientNet.ipynb` notebook initializes and configures the model architect
 
     </center>
   
+### Modelling 
 - Model Architecture
 
     The model architecture consists of the following components:
@@ -111,20 +120,20 @@ The `efficientNet.ipynb` notebook initializes and configures the model architect
 - Model training:
     The model was trained for 5 epochs, on a subset of the data, and the training and test sets were split 80/20. The model was evaluated on the test set, which was not used during training. The confusion matrix below shows the model's performance on the test set.
 
-- Results: 
-    The fine-tuning of the EfficientNet model yielded overall high accuracy results across various classes. Notably, the Fox class achieved an outstanding average test accuracy of 99.3%, followed closely by the Rodent class with an accuracy of 99.6%. The Skunk and Bird classes also demonstrated strong performance, achieving accuracies of 95.3% and 96.9% respectively. However, the model faced challenges distinguishing between the 'Other' category, achieving an accuracy of 57.1%, and the 'Empty' category, where it achieved the lowest accuracy of 11.1%. This is likely due to the fact that the 'Other' category is comprised of a wide variety of species, and the 'Empty' category is comprised of images that do not contain any animals.  
-    
-    <center>
-    
-    ![alt text](img/results/efficientNet.png "EfficientNetB0 Results")
+### Results: 
+The fine-tuning of the EfficientNet model yielded overall high accuracy results across various classes. Notably, the Fox class achieved an outstanding average test accuracy of 99.3%, followed closely by the Rodent class with an accuracy of 99.6%. The Skunk and Bird classes also demonstrated strong performance, achieving accuracies of 95.3% and 96.9% respectively. However, the model faced challenges distinguishing between the 'Other' category, achieving an accuracy of 57.1%, and the 'Empty' category, where it achieved the lowest accuracy of 11.1%. This is likely due to the fact that the 'Other' category is comprised of a wide variety of species, and the 'Empty' category is comprised of images that do not contain any animals.  
 
-    | Class  | Average test accuracy |
-    | ------ | --------------------- |
-    | Fox    | 99.3%                 |
-    | Skunk  | 95.3%                 |
-    | Rodent | 99.6%                 |
-    | Bird   | 96.9%                 |
-    | Other  | 57.1%                 |
-    | Empty  | 11.1%                 |
+<center>
 
-    </center>
+![alt text](img/results/efficientNet.png "EfficientNetB0 Results")
+
+| Class  | Average test accuracy |
+| ------ | --------------------- |
+| Fox    | 99.3%                 |
+| Skunk  | 95.3%                 |
+| Rodent | 99.6%                 |
+| Bird   | 96.9%                 |
+| Other  | 57.1%                 |
+| Empty  | 11.1%                 |
+
+</center>

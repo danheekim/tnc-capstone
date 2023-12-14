@@ -14,7 +14,6 @@ This project is a collaborative effort with [The Nature Conservancy](https://www
     - [Table of Contents](#table-of-contents)
     - [Project Organization](#project-organization)
     - [Modules](#modules)
-      - [Preprocessing](#preprocessing)
       - [Species Classification](#species-classification)
       - [Anomaly Detection](#anomaly-detection)
       - [Rat Detection](#rat-detection)
@@ -86,14 +85,6 @@ tnc-capstone/
 ```
 
 ### Modules
-
-#### Preprocessing
-- Description: The `preprocess.py` script at the source level is designed to automate the cropping of images in a dataset based on the bounding boxes predicted by the MegaDetector v5b model. It is intended to be used a single time to preprocess the dataset before training the species classification models. It utilizes the Google Cloud Storage client to read and write data from Google Cloud Storage buckets. The script is multi-threaded to improve processing efficiency.
-
-    The script reads the JSON data from Google Cloud Storage. This JSON file contains information about the images and the bounding boxes detected by MegaDetector v5b.
-
-    For each image in the dataset, the script checks if it has already been cropped. If not, it proceeds to crop the image based on the bounding boxes with a confidence level greater than 0.90. It then uploads the cropped image to the specified output folder in Google Cloud Storage.
-
 
 #### Species Classification
 This module focuses on classifying species using deep learning techniques and images from camera traps in Channel Islands and Jack and Laura Dangermond Preserve, respectively. The classification models are built on top of a larger pre-trained model, which has then been fine-tuned for this specific task. For more details and documentations, please refer to the `species-classification/jldp/README.md` or `species-classification/lila-channel-islands/README.md`.
