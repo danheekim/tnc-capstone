@@ -16,6 +16,7 @@ tnc-capstone/
 │   │       ├── merg_data.ipynb
 │   │       ├── requirements.txt
 │   │       ├── species_classification.ipynb
+│   │       └── figures/
 ```
 
 ### Data
