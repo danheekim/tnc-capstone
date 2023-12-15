@@ -32,7 +32,7 @@ There was a multi-step pre-processing performed on the data. First, MegaDetector
 
 There were also 24,365 labels corresponding to 24,213 images. Out of these, 14,233 were human-reviewed. The remaining labels had initially been identified using computer vision. However, upon further examination, they were found to have some clear misclassifications. This discovery led us to the decision to proceed exclusively with human-reviewed labels.
 
-When merging the 14,233 labels with the 36,857 cropped images, there was some data loss resulting from images with more than one animal present (where it was impossible to tell which annotation belonged to which species without manually observation), labels for pictures where MegaDetector did not confidently detect the animals present even though human reviewers had identified the labels, and images without human-reviewed labels.
+When merging the 14,233 labels with the 49,668 cropped images, there was some data loss resulting from images with more than one animal present (where it was impossible to tell which annotation belonged to which species without manually observation), labels for pictures where MegaDetector did not confidently detect the animals present even though human reviewers had identified the labels, and images without human-reviewed labels.
 
 After all the cleaning and pre-processing, the resulting dataframe contained 9,251 images with human-reviewed annotations. It should be noted, however, that a few data issues persisted for these images, such as the bounding boxes found by MegaDetector not being exact (and thus incorporating a larger part of the background).
 
